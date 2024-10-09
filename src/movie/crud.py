@@ -4,8 +4,8 @@ from sqlalchemy import select
 
 from src.database import async_session_factory
 from src.exceptions import MovieNotFoundException
-from src.movie.model import Movie
-from src.movie.schema import CreateMovie, UpdateMovie
+from src.models.movie import Movie
+from src.schemas.movie import CreateMovie, UpdateMovie
 
 class MovieORM:
     # TODO: fix type issue

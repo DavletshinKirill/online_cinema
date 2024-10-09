@@ -1,8 +1,11 @@
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped
+import uuid
+
+from sqlalchemy import String, ForeignKey
+from sqlalchemy.orm import Mapped, relationship
 from sqlalchemy.testing.schema import mapped_column
 
 from src.database import Base, uuid_pk
+
 
 
 class Movie(Base):

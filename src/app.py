@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from src.movie.router import movie_router
+from src.api.movie import movie_router
 
 app = FastAPI()
 
