@@ -13,11 +13,11 @@ class MovieSession(Base):
     id: Mapped[uuid_pk]
     date_start: Mapped[datetime]
     price: Mapped[float]
-    movie_object: Mapped[Optional["Movie"]] = relationship("Movie", back_populates="movie_sessions")
+    movie: Mapped[Optional["Movie"]] = relationship("Movie", back_populates="movie_sessions")
     movie_id: Mapped[Optional[uuid.UUID]] = mapped_column(ForeignKey("movie.id"))
-    # hall: Mapped[Optional["Hall"]] = relationship("Hall", back_populates="movie_session")
-    # hall_id: Mapped[Optional[uuid.UUID]] = mapped_column(ForeignKey("hall.id"))
-    # tickets: Mapped[Optional[list["Ticket"]]] = relationship("Ticket", back_populates="movie_session")
+    hall: Mapped[Optional["Hall"]] = relationship("Hall", back_populates="movie_sessions")
+    hall_id: Mapped[Optional[uuid.UUID]] = mapped_column(ForeignKey("hall.id"))
+    tickets: Mapped[Optional[list["Ticket"]]] = relationship("Ticket", back_populates="movie_session")
 
 
 

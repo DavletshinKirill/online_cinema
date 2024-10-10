@@ -19,4 +19,5 @@ class Ticket(Base):
     __tablename__ = 'ticket'
     id: Mapped[uuid_pk]
     status: Mapped[Status] = mapped_column(default=Status.free)
+    movie_session: Mapped[Optional["MovieSession"]] = relationship("MovieSession", back_populates="tickets")
     movie_session_id: Mapped[Optional[uuid.UUID]] = mapped_column(ForeignKey("movie_session.id"))
