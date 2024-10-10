@@ -14,6 +14,6 @@ class Base(DeclarativeBase):
 
 
 engine = create_async_engine(settings.DATABASE_URL_asyncpg, echo=True)
-async_session_factory = async_sessionmaker(engine)
+async_session_factory = async_sessionmaker(engine, autoflush=False, autocommit=False, expire_on_commit=False)
 
 uuid_pk = Annotated[uuid.UUID, mapped_column(primary_key=True, default=uuid.uuid4)]

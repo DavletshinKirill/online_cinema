@@ -1,13 +1,13 @@
 import uuid
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, PositiveInt, Field
 
 
 class CreateMovie(BaseModel):
-    title: str  # = Field( ..., max_length=64, examples="Начало")
-    director: str  # = Field(..., max_length=64, examples="Кристофер Нолан")
-    poster: str  # = Field(..., max_length=64, examples="https://www.google.com/example")
-    duration_minutes: int  # = Field(..., max_length=64, examples=148)
+    title: str  = Field("Начало", max_length=64)
+    director: str = "Кристофер Нолан"
+    poster: str   = "https://www.google.com/example"
+    duration_minutes: PositiveInt
     model_config = ConfigDict(from_attributes=True)
 
 class UpdateMovie(CreateMovie):

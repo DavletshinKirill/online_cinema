@@ -6,7 +6,6 @@ from fastapi.params import Depends
 
 from src.api.dependencies import movie_service
 from src.schemas.movie import CreateMovie, ResponseMovie, UpdateMovie
-from src.movie.crud import MovieORM
 from src.services.movie import MovieService
 
 movie_router = APIRouter()

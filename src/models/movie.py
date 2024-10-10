@@ -1,4 +1,4 @@
-import uuid
+from typing import Optional
 
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, relationship
@@ -15,3 +15,4 @@ class Movie(Base):
     director: Mapped[str] = mapped_column(String(64))
     poster: Mapped[str] = mapped_column(String(64))
     duration_minutes: Mapped[int]
+    movie_sessions: Mapped[Optional[list["MovieSession"]]] = relationship("MovieSession", back_populates="movie_object")
